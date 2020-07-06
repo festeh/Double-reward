@@ -12,7 +12,7 @@ def hello_world():
 
 @app.route('/sync')
 def my_sync():
-    token = environ["APP_TOKEN"]
+    token = environ["APP_TODOIST_TOKEN"]
     api = TodoistAPI(token)
     api.sync()
     projects = api.state['projects']

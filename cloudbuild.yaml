@@ -1,0 +1,6 @@
+steps:
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy"]
+  env:
+    - 'APP_TODOIST_TOKEN=${_APP_TODOIST_TOKEN}'
+timeout: "1600s"
