@@ -1,7 +1,11 @@
 from os import environ
+from pprint import pprint
+
 from flask import Flask
 from todoist.api import TodoistAPI
 from dotenv import load_dotenv
+from flask import request
+
 load_dotenv(verbose=True)
 app = Flask(__name__)
 
@@ -9,6 +13,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return 'Hello World!'
+
 
 @app.route('/sync')
 def my_sync():
@@ -18,6 +23,13 @@ def my_sync():
     projects = api.state['projects']
     print(projects)
     return "SOSI"
+
+
+@app.route('/todoist_item_completed', methods=['POST'])
+def my_sync():
+    pprint(request.get_json())
+    pprint(request.json)
+    return "ok", 200
 
 
 if __name__ == '__main__':
