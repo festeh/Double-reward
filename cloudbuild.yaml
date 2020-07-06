@@ -1,6 +1,18 @@
 steps:
-- name: "gcr.io/cloud-builders/gcloud"
-  args: ["app", "deploy"]
-  env:
-    - 'APP_TODOIST_TOKEN=${_APP_TODOIST_TOKEN}'
+  - name: node:10.15.1
+    entrypoint: npm
+    args: ["install"]
+  - name: node:10.15.1
+    entrypoint: npm
+    args: ["run", "create-env"]
+    env:
+      - 'APP_TODOIST_TOKEN=${_APP_TODOIST_TOKEN}'
+  - name: 'python:3.7'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        pip3 install -r requirements.txt
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy"]
 timeout: "1600s"

@@ -1,3 +1,4 @@
 todoist_python
 environ-config
 flask
+python-dotenv

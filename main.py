@@ -1,8 +1,8 @@
 from os import environ
-
 from flask import Flask
 from todoist.api import TodoistAPI
-
+from dotenv import load_dotenv
+load_dotenv(verbose=True)
 app = Flask(__name__)
 
 
