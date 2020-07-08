@@ -22,7 +22,7 @@ def my_sync():
     api.sync()
     projects = api.state['projects']
     print(projects)
-    return "SOSI"
+    return "OK"
 
 
 @app.route('/todoist_item_completed', methods=['POST'])
