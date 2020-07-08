@@ -31,7 +31,7 @@ def my_sync():
 def todoist_item_completed():
     request_data = request.get_json()
     print(json.dumps(request_data))
-    task_content = request_data["content"]
+    task_content = request_data["event_data"]["content"]
     print("Got task from Todoist", task_content)
     habitica_auth_headers = create_habitica_auth_headers()
     created_task_id = create_habitica_task(habitica_auth_headers, task_content)
