@@ -1,3 +1,4 @@
+import json
 from os import environ
 from pprint import pprint
 
@@ -29,6 +30,7 @@ def my_sync():
 @app.route('/todoist_item_completed', methods=['POST'])
 def todoist_item_completed():
     request_data = request.get_json()
+    print(json.dumps(request_data))
     task_content = request_data["content"]
     print("Got task from Todoist", task_content)
     habitica_auth_headers = create_habitica_auth_headers()
