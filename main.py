@@ -27,9 +27,8 @@ def my_sync():
 
 @app.route('/todoist_item_completed', methods=['POST'])
 def todoist_item_completed():
-    pprint(request.get_json())
-    pprint(request.json)
-    return "ok", 200
+    request_data = request.get_json()
+    return request_data, 200
 
 
 if __name__ == '__main__':
