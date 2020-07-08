@@ -7,6 +7,8 @@ steps:
     args: ["run", "create-env"]
     env:
       - 'APP_TODOIST_TOKEN=${_APP_TODOIST_TOKEN}'
+      - 'APP_HABITICA_TOKEN=${_APP_HABITICA_TOKEN}'
+      - 'APP_HABITICA_USER_ID=${_APP_HABITICA_USER_ID}'
   - name: 'python:3.7'
     entrypoint: 'bash'
     args:
