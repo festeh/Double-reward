@@ -26,7 +26,7 @@ def create_habitica_task(auth_headers, text):
 
 def delete_habitica_task(auth_headers, task_id):
     delete_task_url = f"https://habitica.com/api/v3/tasks/{task_id}"
-    result = requests.delete(delete_task_url, headers=auth_headers)
+    result = requests.delete(delete_task_url, headers=auth_headers).json()
     return result["success"] is True
 
 
